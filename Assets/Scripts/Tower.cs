@@ -8,6 +8,8 @@ public class Tower : MonoBehaviour {
     [SerializeField] float attackRange = 8f;
     [SerializeField] ParticleSystem projectileParticle;
 
+    public WayPoint baseWayPoint;
+
     //State of each tower
     Transform targetEnemy;
 
@@ -46,6 +48,7 @@ public class Tower : MonoBehaviour {
     {
         if(targetEnemy)
         {
+            //TODO - IF ENEMY IS DEAD - STOP SHOOTING
             objectToPen.LookAt(targetEnemy);
             HandleShoot();
         }

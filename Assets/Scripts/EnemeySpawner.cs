@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemeySpawner : MonoBehaviour
 {
+    [SerializeField] Transform EnemyParentTransform;
+
     [Range(0.2f, 3f)]
     [SerializeField] float secondsBetweenSpawns = 3f;
     [SerializeField] EnemyMovement enemy;
@@ -19,7 +21,9 @@ public class EnemeySpawner : MonoBehaviour
         while (true) //forever
         {
             yield return new WaitForSeconds(secondsBetweenSpawns);
-            Instantiate(enemy, transform.position, Quaternion.identity);
+           var newEnemy =  Instantiate(enemy, transform.position, Quaternion.identity);
+            newEnemy.transform.parent = EnemyParentTransform.transform;
+
         }
     }
 }

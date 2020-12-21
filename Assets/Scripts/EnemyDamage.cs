@@ -53,7 +53,10 @@ public class EnemyDamage : MonoBehaviour
     private void HandleEnemyDeathFx()
     {
         var vfx = Instantiate(hitDeathParticlePrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
         vfx.Play();
+
+        float destroyDelay = vfx.main.duration;
+        Destroy(gameObject);
+        Destroy(vfx.gameObject, destroyDelay);
     }
 }

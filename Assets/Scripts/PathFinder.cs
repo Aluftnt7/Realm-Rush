@@ -123,7 +123,8 @@ public class PathFinder : MonoBehaviour
             }
             else
             {
-                 grid.Add(gridPos, waypoint);                
+                 grid.Add(gridPos, waypoint);
+              
             }
         }
     }

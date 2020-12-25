@@ -157,6 +157,8 @@ MonoBehaviour:
   objectToPen: {fileID: 5088991964335141541}
   attackRange: 80
   projectileParticle: {fileID: 141126542320247309}
+  enemyDamage: {fileID: 0}
+  baseWayPoint: {fileID: 0}
 --- !u!1 &8278454598207959770
 GameObject:
   m_ObjectHideFlags: 0

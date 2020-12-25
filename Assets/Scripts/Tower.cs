@@ -8,10 +8,13 @@ public class Tower : MonoBehaviour {
     [SerializeField] float attackRange = 8f;
     [SerializeField] ParticleSystem projectileParticle;
 
+
     public WayPoint baseWayPoint;
 
     //State of each tower
     Transform targetEnemy;
+
+
 
     private void Update()
     {
@@ -30,11 +33,7 @@ public class Tower : MonoBehaviour {
         {
             closestEnemy = GetClosestEnemy(closestEnemy, testEnemy.transform);
         }
-
         targetEnemy = closestEnemy;
-
-
-
     }   
 
     private Transform GetClosestEnemy(Transform closestEnemy, Transform testEnemy)

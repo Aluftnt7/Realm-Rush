@@ -1,14 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemeySpawner : MonoBehaviour
 {
+    [Range(0.2f, 3f)]
+    [SerializeField] float secondsBetweenSpawns = 2f;
+    [SerializeField] EnemyMovement enemy;
     [SerializeField] Transform EnemyParentTransform;
 
-    [Range(0.2f, 3f)]
-    [SerializeField] float secondsBetweenSpawns = 3f;
-    [SerializeField] EnemyMovement enemy;
+    [SerializeField] AudioClip spawnedEnemySfx;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,8 @@ public class EnemeySpawner : MonoBehaviour
         while (true) //forever
         {
             yield return new WaitForSeconds(secondsBetweenSpawns);
-           var newEnemy =  Instantiate(enemy, transform.position, Quaternion.identity);
+            var newEnemy =  Instantiate(enemy, transform.position, Quaternion.identity);
+            GetComponent<AudioSource>().PlayOneShot(spawnedEnemySfx);
             newEnemy.transform.parent = EnemyParentTransform.transform;
 
         }

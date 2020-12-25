@@ -6,9 +6,12 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public bool isEnemyAlive = true;
+    [SerializeField] private Animator animator;
+
     [Header("Movement Stats")]
     [SerializeField] float movementPerFrame = 0.1f;
     [SerializeField] float waypointDwellTime = 1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
             yield return StartCoroutine(MoveTowardsWaypoint(wayPoint)); // wait until enemy moves to next waypoint
             yield return new WaitForSeconds(waypointDwellTime); // dwell on a waypoint for a little while
         }
+        animator.SetBool("isAtEnd", true);
         //print("Ending patrol");
     }
 
@@ -52,6 +56,8 @@ public class EnemyMovement : MonoBehaviour
     {
         print("omg he died");
         isEnemyAlive = false;
+
     }
 
+  
 }

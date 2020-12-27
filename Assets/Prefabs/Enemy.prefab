@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemyAlive: 1
   animator: {fileID: 507198638}
-  movementPerFrame: 0.06
+  movementPerFrame: 0.08
   waypointDwellTime: -0.05
 --- !u!54 &5361911350655875214
 Rigidbody:
